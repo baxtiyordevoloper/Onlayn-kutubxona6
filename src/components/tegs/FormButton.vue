@@ -1,5 +1,5 @@
 <script setup>
-defineProps( {
+defineProps({
     name: {
         type: String,
         required: true
@@ -12,12 +12,10 @@ defineProps( {
 </script>
 
 <template>
-    <template>
-        <button type="button" class="btn" style="min-width: 25%">
-            <span>{{name}}</span>
-            <span v-if="loading" class="spinner-border spinner-border-sm text-light"></span>
-        </button>
-    </template>
+    <button type="button" class="btn" style="min-width: 25%">
+        <span>{{name}}</span>
+        <span v-if="loading" class="spinner-border spinner-border-sm text-light"></span>
+    </button>
 </template>
 
 <style scoped>
