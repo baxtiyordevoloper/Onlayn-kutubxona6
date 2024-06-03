@@ -2,10 +2,11 @@
 defineProps({
     labelName: {
         type: String,
-        required:true
+        required: true
     },
     propsId: {
-        required:true
+        required: true,
+        type: String
     },
     inputType: {
         default: 'text'
@@ -20,7 +21,8 @@ defineEmits(['update:modelValue'])
         <label v-bind:for="propsId">{{labelName}}</label>
         <input
             @input="$emit('update:modelValue', $event.target.value)"
-            :type="inputType" class="form-control" :id="propsId">
+            :type="inputType" class="form-control" :id="propsId"
+        >
     </div>
 </template>
 
