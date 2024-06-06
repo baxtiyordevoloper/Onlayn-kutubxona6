@@ -1,5 +1,11 @@
 <script setup>
+import {useRouter} from "vue-router";
+const router = useRouter();
 
+function logout() {
+    localStorage.removeItem("token");
+    router.push("/login");
+}
 </script>
 
 <template>
@@ -14,8 +20,24 @@
                         </button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                              <li class="nav-item dropdown">
+                                  <a
+                                        class="nav-link dropdown-toggle"
+                                        type="button"
+                                        data-bs-toggle="dropdown"
+                                  >
+                                      Kategoriya
+                                  </a>
+                                  <ul class="dropdown-menu">
+                                      <li>
+                                          <router-link class="dropdown-item" to="/edit-category">
+                                              O'zgartirish & O'chirish
+                                          </router-link>
+                                      </li>
+                                  </ul>
+                              </li>
                                 <li class="nav-item">
-                                    <router-link class="nav-link" to="/login">Login</router-link>
+                                    <router-link @click="logout()" class="nav-link" to="/login">Kirish</router-link>
                                 </li>
                             </ul>
                         </div>

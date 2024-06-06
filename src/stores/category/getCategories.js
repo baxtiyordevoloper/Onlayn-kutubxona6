@@ -14,13 +14,13 @@ export const useFetchCategories
             return new Promise((resolve, reject) => {
                 client.get('categories')
                         .then((res) => {
-                                console.log('Categoriyalar muvaffaqiyatli olindi')
+                                console.log('Kategoriyalar muvaffaqiyatli olindi')
                                 state.categories = res.data['hydra:member']
                                 state.count = res.data['hydra:totalItems']
                                 resolve()
                             })
                             .catch(() => {
-                                console.log('Categoriyalar olishda xatolik yuz berdi')
+                                console.log('Kategoriyalarni olishda xatolik yuz berdi')
                                 reject()
                             })
 

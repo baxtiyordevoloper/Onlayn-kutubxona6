@@ -10,7 +10,12 @@ defineProps({
     },
     inputType: {
         default: 'text'
+    },
+    autoComplete: {
+        type: Boolean,
+        required: false
     }
+
 })
 
 defineEmits(['update:modelValue'])
@@ -22,6 +27,7 @@ defineEmits(['update:modelValue'])
         <input
             @input="$emit('update:modelValue', $event.target.value)"
             :type="inputType" class="form-control" :id="propsId"
+            :autoComplete="autoComplete"
         >
     </div>
 </template>
