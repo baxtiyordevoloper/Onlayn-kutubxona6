@@ -49,6 +49,14 @@ const routes = [
         },
         beforeEnter: ifAuthorized,
     },
+    {
+        path:'/create-book',
+        component: () => import('@/pages/CreateBook.vue'),
+        meta:{
+            layout:defineAsyncComponent(() => import('@/layouts/DefaultLayout.vue'))
+        },
+        beforeEnter: ifAuthorized,
+    }
 ]
 
 export default createRouter({

@@ -37,6 +37,9 @@ function logout() {
                                   </ul>
                               </li>
                                 <li class="nav-item">
+                                    <router-link to="/create-book" class="nav-link">Kitob yaratish</router-link>
+                                </li>
+                                <li class="nav-item">
                                     <router-link @click="logout()" class="nav-link" to="/login">Kirish</router-link>
                                 </li>
                             </ul>
