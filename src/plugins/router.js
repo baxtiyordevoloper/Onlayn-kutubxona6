@@ -26,7 +26,7 @@ const routes = [
         beforeEnter: ifAuthorized,
     },
     {
-        path:'/book-info',
+        path:'/book-info/:bookId',
         component: () => import('@/pages/BookinfoPage.vue'),
         meta:{
             layout:defineAsyncComponent(() => import('@/layouts/DefaultLayout.vue'))
@@ -56,10 +56,27 @@ const routes = [
             layout:defineAsyncComponent(() => import('@/layouts/DefaultLayout.vue'))
         },
         beforeEnter: ifAuthorized,
+    },
+    {
+        path:'/by-category/:id',
+        component: () => import('@/pages/HomePage.vue'),
+        meta:{
+            layout:defineAsyncComponent(() => import('@/layouts/DefaultLayout.vue'))
+        },
+        beforeEnter: ifAuthorized,
+    },
+    {
+        path:'/create-categoriya',
+        component: () => import('@/pages/CreateCategory.vue'),
+        meta:{
+            layout:defineAsyncComponent(() => import('@/layouts/DefaultLayout.vue'))
+        },
+        beforeEnter: ifAuthorized,
     }
 ]
 
 export default createRouter({
     history: createWebHistory(),
-    routes
+    routes,
+    linkActiveClass: 'active'
 })

@@ -1,10 +1,8 @@
 <script setup>
-import {useRouter} from "vue-router";
-const router = useRouter();
 
 function logout() {
     localStorage.removeItem("token");
-    router.push("/login");
+    location.assign('/login')
 }
 </script>
 
@@ -15,7 +13,9 @@ function logout() {
                 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
                     <div class="container-fluid">
                         <router-link to="/" class="navbar-brand">Kitoblar</router-link>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -40,7 +40,10 @@ function logout() {
                                     <router-link to="/create-book" class="nav-link">Kitob yaratish</router-link>
                                 </li>
                                 <li class="nav-item">
-                                    <router-link @click="logout()" class="nav-link" to="/login">Kirish</router-link>
+                                    <router-link to="/create-categoriya" class="nav-link">Kategoriya yaratish</router-link>
+                                </li>
+                                <li class="nav-item">
+                                    <router-link @click="logout()" class="nav-link" to="/login">Chiqish</router-link>
                                 </li>
                             </ul>
                         </div>

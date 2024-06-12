@@ -4,7 +4,11 @@ import FormButton from "@/components/tegs/FormButton.vue";
 import {reactive, ref} from "vue";
 import {useFetchCategories} from "@/stores/category/getCategories.js";
 import {useAddFile} from "@/stores/mediaObject/addFile.js";
+import {useCreateBook} from "@/stores/book/createBook.js";
+import {useRouter} from "vue-router";
 
+
+const router = useRouter()
 let file = ref()
 
 let book = reactive({
@@ -15,10 +19,20 @@ let book = reactive({
     image: ""
 })
 function selectImage(event) {
-   file = event.target.files[0];
+   file = event.target.files[0]
 }
 
+function create() {
+    useAddFile().addFile(file)
+        .then((res) => {
+            book.image = '/api/media_objects/' + res.data.id
 
+            useCreateBook().bookCreate(book)
+                .then(() => {
+                    router.push('/')
+                })
+        })
+}
 
 </script>
 
@@ -43,7 +57,7 @@ function selectImage(event) {
             <input @change="selectImage($event)" type="file" class="form-control mt-3">
 
             <div class="text-end">
-                <FormButton name="Yaratish" class="btn-success mt-3"/>
+                <FormButton @click="create()" name="Yaratish" class="btn-success mt-3"/>
             </div>
         </div>
     </div>

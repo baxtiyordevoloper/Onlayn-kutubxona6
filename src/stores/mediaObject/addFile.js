@@ -4,12 +4,16 @@ import {client} from "@/plugins/axios.js";
 export const useAddFile
     = defineStore("add-file", () => {
 
+
         function addFile(data) {
+            const file = new FormData()
+            file.append("file", data)
+
                 return new Promise((resolve, reject) => {
-                        client.post('media_objects', data)
-                            .then((response) => {
+                        client.post('media_objects', file)
+                            .then((res) => {
                                     console.log("Fayl muvaffaqiyatli yuklandi")
-                                    resolve()
+                                    resolve(res)
                             })
                             .catch(() => {
                                     console.log("Fayl yukalshda xatolik yuz berdi")
