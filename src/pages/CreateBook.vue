@@ -39,11 +39,10 @@ function create() {
 <template>
     <div class="row mb-3">
         <div class="col-12 col-md-6">
-            <h1>Kitob yaratish</h1>
-            <FormInput v-model="book.name" props-id="name" label-name="Kitob nomi"/>
-            <FormInput v-model="book.description" props-id="description" label-name="Kitob ta'rifi"/>
-            <textarea  v-model="book.text" class="form-control mb-3" rows="10" placeholder="Kitob matni"/>
-
+            <h1>{{$t('createBook')}}</h1>
+            <FormInput v-model="book.name" props-id="name" :label-name="$t('bookName')"/>
+            <FormInput v-model="book.description" props-id="description" :label-name="$t('description')"/>
+            <textarea  v-model="book.text" class="form-control mb-3" rows="10" :placeholder="$t('textbook')"/>
             <select v-model="book.category" class="form-select mb-3">
                 <option
                     v-for="category in useFetchCategories().state.categories"
@@ -57,7 +56,7 @@ function create() {
             <input @change="selectImage($event)" type="file" class="form-control mt-3">
 
             <div class="text-end">
-                <FormButton @click="create()" name="Yaratish" class="btn-success mt-3"/>
+                <FormButton @click="create()" :name="$t('createAdd')" class="btn-success mt-3"/>
             </div>
         </div>
     </div>

@@ -1,0 +1,19 @@
+{
+  "book": "Книги",
+  "category": "Категории",
+  "update/delete": "Изменить & Удалить",
+  "createBook": "Создать книгу",
+  "createCategory": "Создать Категории ",
+  "logout": "Выйти",
+
+  "books": "Книги",
+  "update": "ИЗМЕНИТЬ",
+  "delete": "УДАЛИТЬ",
+  "bookName": "Название книги",
+  "description": "Кратко о книге",
+  "textbook": "Текст Книги",
+  "createAdd": "Создать",
+  "create_category": "Создать Категория",
+  "nameCategory": "Название Категории"
+
+}

@@ -32,7 +32,7 @@ watch(
                     <h5 class="card-title">{{book.name}}</h5>
                     <h5 class="text-end" style="font-size: 15px">{{book.category.name}}</h5>
                     <p class="card-text">{{book.description}}</p>
-                    <router-link :to="'/book-info' + book.id" class="btn btn-primary">O'qish</router-link>
+                    <router-link :to="'/book-info/' + book.id" class="btn btn-primary">{{$t('reading')}}</router-link>
                 </div>
             </div>
         </div>

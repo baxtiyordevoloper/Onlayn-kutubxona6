@@ -27,7 +27,7 @@ const routes = [
     },
     {
         path:'/book-info/:bookId',
-        component: () => import('@/pages/BookinfoPage.vue'),
+        component: () => import('@/pages/BookInfoPage.vue'),
         meta:{
             layout:defineAsyncComponent(() => import('@/layouts/DefaultLayout.vue'))
         },

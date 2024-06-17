@@ -36,9 +36,9 @@ function deleteCategory(id) {
    <div>
        <div v-if="isChange" class="row">
            <div class="col-12 col-md-6">
-               <FormInput v-model="name" props-id="category" label-name="Kategoriya nomi"/>
+               <FormInput v-model="name" props-id="category" :label-name="$t('category')"/>
                <div class= "text-end">
-                   <FormButton @click="change()" name="O'zgartirish" class="btn btn-success"/>
+                   <FormButton @click="change()" :name="$t('update')" class="btn btn-success"/>
                </div>
            </div>
        </div>
@@ -46,17 +46,17 @@ function deleteCategory(id) {
            <thead>
            <tr>
                <th scope="col">Id</th>
-               <th scope="col">Kategoriya nomi</th>
-               <th scope="col">O'zgartirish</th>
-               <th scope="col">O'chirish</th>
+               <th scope="col">{{$t('category')}}</th>
+               <th scope="col">{{$t('update')}}</th>
+               <th scope="col">{{$t('delete')}}</th>
            </tr>
            </thead>
            <tbody>
            <tr v-for="category in categories" :key="category.id">
                <th>{{category.id}}</th>
                <td>{{category.name}}</td>
-               <td><span @click="select(category)" class="btn text-success">O'zgartirish</span></td>
-               <td><span @click="deleteCategory(category.id)" class="btn text-danger">O'chirish</span></td>
+               <td><span @click="select(category)" class="btn text-success">{{$t('update')}}</span></td>
+               <td><span @click="deleteCategory(category.id)" class="btn text-danger">{{$t('delete')}}</span></td>
            </tr>
            </tbody>
        </table>

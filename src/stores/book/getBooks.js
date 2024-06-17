@@ -11,7 +11,7 @@ export const useFetchBooks
         })
         function booksGet(url = '') {
             return new Promise((resolve, reject) => {
-                client.get('footballs/' + url)
+                client.get('footballs' + url)
                     .then((res) =>{
                         console.log('Kitoblar muvaffaqiyatli olindi')
                         state.footballs = res.data['hydra:member']

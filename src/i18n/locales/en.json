@@ -1,0 +1,20 @@
+{
+  "book": "Books",
+  "category": "Category",
+  "update/delete": "Update & Delete",
+  "createBook": "Create book",
+  "logout": "Logout",
+
+  "reading": "Reading",
+  "update": "Update",
+  "delete": "Delete",
+  "bookName": "Book Name",
+  "description": "Description",
+  "textbook": "Textbook",
+  "createAdd": "Create Add",
+  "create_category": "Create Category",
+  "nameCategory": "Name Category"
+
+
+
+}

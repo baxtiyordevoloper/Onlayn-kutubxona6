@@ -21,10 +21,12 @@ function create() {
 <template>
     <div class="row mt-3">
         <div class="col-12 col-md-6">
-            <h1>Kategoriya yaratish</h1>
-            <FormInput v-model="categoriya.name" props-id="categoriya.name" label-name="Kategoriya nomi"></FormInput>
+            <h1>{{$t('create_category')}}</h1>
+            <FormInput v-model="categoriya.name" props-id="categoriya.name"
+                       :label-name="$t('nameCategory') ">
+                 </FormInput>
             <div class="text-end">
-                <FormButton @click="create()" name="Yaratish" class="btn-success mt-3"/>
+                <FormButton @click="create()" :name="$t('createdAdd')" class="btn-success mt-3"/>
             </div>
         </div>
     </div>

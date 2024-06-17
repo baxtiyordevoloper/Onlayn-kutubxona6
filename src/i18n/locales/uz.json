@@ -1,0 +1,23 @@
+{
+  "book": "Kitoblar",
+  "category": "Kategoriyalar",
+  "update/delete": "O'zgartish & O'chirish",
+  "createBook": "Kitob yaratish",
+  "createCategory": "Kategoriye yaratish",
+  "logout": "Chiqish",
+
+  "reading": "O'qish",
+  "update": "O'ZGARTIRISH",
+  "delete": "O'CHIRISH",
+  "bookName": "Kitob nomi",
+  "description": "Description",
+  "textbook": "Kitobning matni",
+  "createAdd": "Yaratish",
+  "create_category": "Kategoriya Yaratish",
+  "nameCategory": "Kategoriyaning nomi"
+}
+
+
+
+
+
