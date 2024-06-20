@@ -7,13 +7,21 @@
   "logout": "Выйти",
 
   "books": "Книги",
-  "update": "ИЗМЕНИТЬ",
-  "delete": "УДАЛИТЬ",
+  "update": "Изменить",
+  "delete": "Удалить",
   "bookName": "Название книги",
   "description": "Кратко о книге",
   "textbook": "Текст Книги",
   "createAdd": "Создать",
   "create_category": "Создать Категория",
-  "nameCategory": "Название Категории"
+  "nameCategory": "Название Категории",
 
+  "admin-page": "Страница администратора",
+  "email": "Электронная почта",
+  "phone": "Телефон",
+  "search": "Поиск",
+  "cleaning": "Очистка",
+  "gender": "Пол",
+  "age": "возраст",
+  "date_of_registration": "Дата регистрации"
 }

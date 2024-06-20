@@ -13,8 +13,16 @@
   "textbook": "Textbook",
   "createAdd": "Create Add",
   "create_category": "Create Category",
-  "nameCategory": "Name Category"
+  "nameCategory": "Name Category",
 
+  "admin-page": "Admin Page",
+  "email": "Email",
+  "phone": "Phone",
+  "search": "Search",
+  "cleaning": "Cleaning",
+  "gender": "Gender",
+  "age": "Age",
+  "date_of_registration": "Date of registration"
 
 
 }

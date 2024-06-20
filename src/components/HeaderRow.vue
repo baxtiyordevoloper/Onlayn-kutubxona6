@@ -1,8 +1,8 @@
 <script setup>
-
 import {useI18n} from "vue-i18n";
 
 const i18n = useI18n();
+let isAdmin = JSON.parse(atob(localStorage.getItem('token').split('.')[1])).roles.includes("ROLE_ADMIN")
 function logout() {
     localStorage.removeItem("token");
     location.assign('/login')
@@ -45,6 +45,9 @@ function logout() {
                                 <li class="nav-item">
                                     <router-link to="/create-categoriya" class="nav-link">{{$t('create_category')}}
                                     </router-link>
+                                </li>
+                                <li v-if="isAdmin" class="nav-item">
+                                    <router-link to="/admin-page" class="nav-link">{{$t("admin-page")}}</router-link>
                                 </li>
                                 <li class="nav-item">
                                     <router-link @click="logout()" class="nav-link" to="/login">{{$t('logout')}}

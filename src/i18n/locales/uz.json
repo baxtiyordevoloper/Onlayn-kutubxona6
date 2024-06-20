@@ -7,14 +7,23 @@
   "logout": "Chiqish",
 
   "reading": "O'qish",
-  "update": "O'ZGARTIRISH",
-  "delete": "O'CHIRISH",
+  "update": "O'zgartirish",
+  "delete": "O'chirish",
   "bookName": "Kitob nomi",
   "description": "Description",
   "textbook": "Kitobning matni",
   "createAdd": "Yaratish",
   "create_category": "Kategoriya Yaratish",
-  "nameCategory": "Kategoriyaning nomi"
+  "nameCategory": "Kategoriyaning nomi",
+
+  "admin-page": "Admin Sahifa",
+  "email": "Email",
+  "phone": "Telfon",
+  "search": "Izlash",
+  "cleaning": "Tozalash",
+  "gender": "Jins",
+  "age": "Yosh",
+  "date_of_registration": "Registratsiya sanasi"
 }
 
 

@@ -1,6 +1,6 @@
 import {createRouter, createWebHistory} from "vue-router";
 import {defineAsyncComponent} from "vue";
-
+let isAdmin = () => JSON.parse(atob(localStorage.getItem('token').split('.')[1])).roles.includes("ROLE_ADMIN")
 const ifAuthorized = (to, from, next) => {
     if (localStorage.getItem('token') !== null){
         next()
@@ -72,6 +72,14 @@ const routes = [
             layout:defineAsyncComponent(() => import('@/layouts/DefaultLayout.vue'))
         },
         beforeEnter: ifAuthorized,
+    },
+    {
+        path:'/admin-page',
+        component: () => import('@/pages/AdminPage.vue'),
+        meta:{
+            layout:defineAsyncComponent(() => import('@/layouts/MainLayout.vue'))
+        },
+        beforeEnter: [ifAuthorized,isAdmin]
     }
 ]
 
