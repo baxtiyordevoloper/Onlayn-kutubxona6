@@ -42,6 +42,14 @@ const routes = [
         beforeEnter:ifNotAuthorized,
     },
     {
+        path: '/registration',
+        component: () => import('@/pages/RegistrationPage.vue'),
+        meta:{
+            layout:defineAsyncComponent(() => import('@/layouts/BlankLayout.vue'))
+        },
+        beforeEnter:ifNotAuthorized,
+    },
+    {
         path:'/edit-category',
         component: () => import('@/pages/EditCategory.vue'),
         meta:{
@@ -71,7 +79,7 @@ const routes = [
         meta:{
             layout:defineAsyncComponent(() => import('@/layouts/DefaultLayout.vue'))
         },
-        beforeEnter: ifAuthorized,
+        beforeEnter: [ifAuthorized,isAdmin]
     },
     {
         path:'/admin-page',
@@ -80,6 +88,14 @@ const routes = [
             layout:defineAsyncComponent(() => import('@/layouts/MainLayout.vue'))
         },
         beforeEnter: [ifAuthorized,isAdmin]
+    },
+    {
+        path:'/cabinet_page',
+        component: () => import('@/pages/CabinetPage.vue'),
+        meta:{
+            layout:defineAsyncComponent(() => import('@/layouts/MainLayout.vue'))
+        },
+        beforeEnter: ifAuthorized
     }
 ]
 

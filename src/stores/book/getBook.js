@@ -11,7 +11,7 @@ export const useFetchBook
 
         function bookGet(id) {
             return new Promise((resolve, reject) => {
-                client.get('footballs' + id)
+                client.get('footballs/' + id)
                     .then((res) => {
                         console.log("Kitob muvaffaqiyatli olindi")
                         state.name = res.data.name

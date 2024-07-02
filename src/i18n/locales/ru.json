@@ -23,5 +23,8 @@
   "cleaning": "Очистка",
   "gender": "Пол",
   "age": "возраст",
-  "date_of_registration": "Дата регистрации"
+  "date_of_registration": "Дата регистрации",
+
+  "total_number_of_users": "Общее количество пользователей",
+  "access": "Доступ"
 }

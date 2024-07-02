@@ -10,7 +10,7 @@
   "update": "O'zgartirish",
   "delete": "O'chirish",
   "bookName": "Kitob nomi",
-  "description": "Description",
+  "description": "Kitob ta'rifi",
   "textbook": "Kitobning matni",
   "createAdd": "Yaratish",
   "create_category": "Kategoriya Yaratish",
@@ -23,7 +23,12 @@
   "cleaning": "Tozalash",
   "gender": "Jins",
   "age": "Yosh",
-  "date_of_registration": "Registratsiya sanasi"
+  "date_of_registration": "Registratsiya sanasi",
+
+  "total_number_of_users": "Jami foydalanuvchilar soni",
+  "access": "Kirish",
+  "registration": "Registratsiya"
+
 }
 
 

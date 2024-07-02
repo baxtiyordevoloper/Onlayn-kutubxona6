@@ -17,7 +17,7 @@ export const useFetUsers
                     console.log('Foydalanuchilar muvaffaqiyatli olindi')
                     state.users = res.data['hydra:member']
                     state.totalItems = res.data['hydra:totalItems']
-                    state.pageCount = Math.ceil( state.totalItems / 10)
+                    state.pageCount = Math.ceil( state.totalItems / 5)
                     resolve()
                 })
                     .catch(() => {
@@ -25,7 +25,6 @@ export const useFetUsers
                         reject()
                     })
             })
-
-
-    }
+        }
+        return {usersGet, state}
 })

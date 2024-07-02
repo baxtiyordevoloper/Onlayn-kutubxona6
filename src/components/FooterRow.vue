@@ -4,7 +4,7 @@
 
 <template>
         <div class="row">
-            <div class="col">
+            <div class="col-12" >
                 <footer class="bg-dark text-light p-5">
                     &copy; All rights reserved
                 </footer>

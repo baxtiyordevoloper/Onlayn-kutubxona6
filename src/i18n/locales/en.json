@@ -22,7 +22,10 @@
   "cleaning": "Cleaning",
   "gender": "Gender",
   "age": "Age",
-  "date_of_registration": "Date of registration"
+  "date_of_registration": "Date of registration",
+
+  "total_number_of_users": "Total number of users",
+  "access": "Access"
 
 
 }

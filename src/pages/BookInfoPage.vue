@@ -6,7 +6,7 @@ import {computed} from "vue";
 const route = useRoute();
 const bookStore = useFetchBook()
 
- bookStore.bookGet(route.params.bookId)
+bookStore.bookGet(route.params.bookId)
 const book = computed(() => bookStore.state)
 
 </script>

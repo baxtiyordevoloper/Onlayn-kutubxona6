@@ -2,12 +2,32 @@
 import FormInput from "@/components/tegs/FormInput.vue";
 import {ref} from "vue";
 import FormButton from "@/components/tegs/FormButton.vue";
+import {useFetUsers} from "@/stores/user/getUser.js";
 
+//Umumiy
+let query = ref('?page=1')
+const storeUser = useFetUsers()
+storeUser.usersGet('?page=1')
+const {state} = storeUser
+
+// Filter uchun
 let email = ref(null)
 let phone = ref(null)
 
 function search(){
-    console.log(email.value, phone.value)
+    query.value = '?page=1'
+
+    if (email.value) {
+        query.value += '&email=' + email.value
+    }
+
+    if (phone.value) {
+        query.value += '&phone=' + phone.value
+    }
+
+    if (email.value || phone.value) {
+        storeUser.usersGet(query.value)
+    }
 }
 
 function clear() {
@@ -15,6 +35,15 @@ function clear() {
     document.getElementById('phone').value = ''
     email.value = null
     phone.value = null
+
+    storeUser.usersGet('?page=1')
+}
+
+// Paginatsiya uchun
+let currentPage = ref(1)
+function changePage(value) {
+   currentPage.value = value
+    storeUser.usersGet(query.value.replace(/page=[1-9]/, 'page=' + value))
 }
 </script>
 
@@ -53,26 +82,39 @@ function clear() {
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2">Larry the Bird</td>
-                    <td>@twitter</td>
+                <tr v-for="user in state.users" :key="user.id">
+                    <th scope="row">{{user.id}}</th>
+                    <td>{{user.email}}</td>
+                    <td>{{user.phone}}</td>
+                    <td>{{user.age}}</td>
+                    <td>{{user.gender}}</td>
+                    <td>{{user.createdAt.slice(0, 10)}}</td>
                 </tr>
                 </tbody>
             </table>
-        </div>
+            <div class="me-3">
+              {{$t('total_number_of_users')}}  {{state.totalItems}}
+            </div>
+        </div >
+
+        <nav>
+            <ul class="pagination justify-content-end">
+                <li :class="{'disabled': currentPage === 1}">
+                    <span @click="changePage(1)" class="page-link rounded">Previous</span>
+                </li>
+                <li
+                  v-for="index in state.pageCount"
+                  :key="index"
+                  :class="{'acive': currentPage === index}"
+                  class="page-item mx-1"
+                >
+                    <span @click="changePage(index)" class="page-link rounded">{{index}}</span>
+                </li>
+                <li :class="{'disabled': currentPage === state.pageCount}">
+                    <span @click="changePage(state.pageCount)" class="page-link rounded btn">Next</span>
+                </li>
+            </ul>
+        </nav>
     </div>
 </template>
 

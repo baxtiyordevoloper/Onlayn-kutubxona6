@@ -16,7 +16,7 @@ watch(
         if (value === undefined) {
             useFetchBooks().booksGet()
         }else  {
-            useFetchBooks().booksGet('by-category?categoryId=' + route.params.id)
+            useFetchBooks().booksGet('/by-category?categoryId=' + route.params.id)
         }
     })
 </script>

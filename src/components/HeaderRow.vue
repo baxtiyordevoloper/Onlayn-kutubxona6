@@ -23,7 +23,7 @@ function logout() {
                         </button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                              <li class="nav-item dropdown">
+                              <li v-if="isAdmin" class="nav-item dropdown">
                                   <a
                                         class="nav-link dropdown-toggle"
                                         type="button"
@@ -39,15 +39,18 @@ function logout() {
                                       </li>
                                   </ul>
                               </li>
-                                <li class="nav-item">
+                                <li v-if="isAdmin" class="nav-item">
                                     <router-link to="/create-book" class="nav-link">{{$t('createBook')}}</router-link>
                                 </li>
-                                <li class="nav-item">
+                                <li v-if="isAdmin" class="nav-item">
                                     <router-link to="/create-categoriya" class="nav-link">{{$t('create_category')}}
                                     </router-link>
                                 </li>
                                 <li v-if="isAdmin" class="nav-item">
                                     <router-link to="/admin-page" class="nav-link">{{$t("admin-page")}}</router-link>
+                                </li>
+                                <li class="nav-item">
+                                    <router-link to="/cabinet_page" class="nav-link">Kabinet</router-link>
                                 </li>
                                 <li class="nav-item">
                                     <router-link @click="logout()" class="nav-link" to="/login">{{$t('logout')}}
