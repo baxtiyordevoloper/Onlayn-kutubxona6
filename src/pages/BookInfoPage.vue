@@ -10,7 +10,6 @@ bookStore.bookGet(route.params.bookId)
 const book = computed(() => bookStore.state)
 
 </script>
-
 <template>
     <h1>{{book.name}} </h1>
 

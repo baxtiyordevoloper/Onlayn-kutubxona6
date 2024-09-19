@@ -41,7 +41,7 @@ watch(
 
 <style scoped>
 .card-img-top {
-    height: 500px;
+    height: 400px;
     object-fit: cover;
 }
 </style>

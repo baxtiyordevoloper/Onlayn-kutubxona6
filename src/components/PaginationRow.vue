@@ -1,24 +1,37 @@
 <script setup>
+import {ref} from "vue";
+import {useFetchBooks} from "@/stores/book/getBooks.js";
 
+let query = ref('?page=1')
+const storeBook = useFetchBooks()
+storeBook.booksGet('?page=1')
+const {state} = storeBook
+let currentPage = ref(1)
+
+function changePage(value) {
+    currentPage.value = value
+    storeBook.booksGet(query.value.replace(/page=[1-9]/, 'page=' + value))
+}
 </script>
 
 <template>
     <div class="row">
         <div class="col">
-            <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                        </a>
+            <nav>
+                <ul class="pagination justify-content-lg-start">
+                    <li :class="{'disabled': currentPage === 1}">
+                        <span @click="changePage(1)" class="page-link rounded">&laquo;</span>
                     </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item active"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
+                    <li
+                        v-for="index in state.pageCount"
+                        :key="index"
+                        :class="{'active': currentPage === index}"
+                        class="page-item mx-1"
+                    >
+                        <span @click="changePage(index)" class="page-link rounded">{{index}}</span>
+                    </li>
+                    <li :class="{'disabled': currentPage === state.pageCount}">
+                        <span @click="changePage(state.pageCount)" class="page-link rounded">&raquo;</span>
                     </li>
                 </ul>
             </nav>

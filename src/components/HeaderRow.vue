@@ -1,11 +1,19 @@
 <script setup>
 import {useI18n} from "vue-i18n";
+import {computed, reactive, ref} from "vue";
+import {useFetchBooks} from "@/stores/book/getBooks.js";
 
 const i18n = useI18n();
 let isAdmin = JSON.parse(atob(localStorage.getItem('token').split('.')[1])).roles.includes("ROLE_ADMIN")
 function logout() {
     localStorage.removeItem("token");
     location.assign('/login')
+}
+
+let search = ref('')
+
+function searchBook(){
+    useFetchBooks().booksGet(search.value)
 }
 </script>
 
@@ -52,6 +60,10 @@ function logout() {
                                 <li class="nav-item">
                                     <router-link to="/cabinet_page" class="nav-link">Kabinet</router-link>
                                 </li>
+<!--                                <li class="nav-item">-->
+<!--                                    <input v-model="search" type="text" @keydown.enter="searchBook()" placeholder="Qidiruv">-->
+<!--                                    <button @click="searchBook" >Jo'natish</button>-->
+<!--                                </li>-->
                                 <li class="nav-item">
                                     <router-link @click="logout()" class="nav-link" to="/login">{{$t('logout')}}
                                     </router-link>

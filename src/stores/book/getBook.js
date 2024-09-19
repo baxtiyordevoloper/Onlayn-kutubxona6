@@ -2,8 +2,8 @@ import {defineStore} from "pinia";
 import {client} from "@/plugins/axios.js";
 import {reactive} from "vue";
 
-export const useFetchBook
-    = defineStore('fetchBook', () => {
+export const useFetchBook =
+    defineStore('fetchBook', () => {
         const state = reactive({
             name: '',
             text: ''
