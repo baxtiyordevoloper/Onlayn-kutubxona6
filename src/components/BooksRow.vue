@@ -1,6 +1,6 @@
 <script setup>
 import {useFetchBooks} from "@/stores/book/getBooks.js";
-import {computed, watch} from "vue";
+import {computed, watch, inject} from "vue";
 import {useRoute} from "vue-router";
 
 console.log(useRoute())
@@ -10,6 +10,9 @@ const footballs = computed(() => useFetchBooks().state.footballs)
 const host = import.meta.env.VITE_API_DOMEN
 const route = useRoute()
 
+const searchBook = inject("searchBook")
+
+
 watch(
     () => route.params.id,
     (value) => {
@@ -18,7 +21,10 @@ watch(
         }else  {
             useFetchBooks().booksGet('/by-category?categoryId=' + route.params.id)
         }
-    })
+    },
+
+
+    )
 </script>
 <template>
     <div class="row">
